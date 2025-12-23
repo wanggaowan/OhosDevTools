@@ -1,0 +1,39 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
+    <id>com.wanggaowan.ohosdevtools</id>
+    <name>OhosDevTools</name>
+    <vendor email="wanggaowan@163.com" />
+    <xi:include href="plugin_desc.xml" />
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.json</depends>
+
+    <actions>
+        <group id="OhosDevTools.EditorPopupMenu">
+            <action id="OhosDevTools.ExtractStr2L10n"
+                class="com.wanggaowan.ohosdevtools.actions.translate.ExtractStr2L10nAction"
+                text="提取为多语言" />
+            <action id="OhosDevTools.ExtractStr2L10nWithTranslateAction"
+                class="com.wanggaowan.ohosdevtools.actions.translate.ExtractStr2L10nWithTranslateAction"
+                text="提取为多语言并翻译" />
+            <separator />
+            <add-to-group group-id="EditorPopupMenu" anchor="first" />
+        </group>
+
+        <action id="OhosDevTools.TranslateStringsAction"
+            class="com.wanggaowan.ohosdevtools.actions.translate.TranslateStringsAction"
+            text="根据模版string.json翻译"
+            description="根据模版string.json对应内容，将当前文件不存在的内容进行翻译并插入">
+            <add-to-group group-id="CutCopyPasteGroup" anchor="last" />
+        </action>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup displayType="BALLOON" id="com.wanggaowan.ohosdevtools.notification"
+            isLogByDefault="false" />
+
+        <projectConfigurable parentId="tools"
+            instance="com.wanggaowan.ohosdevtools.settings.ProjectPluginSettingsConfigurable"
+            id="OhosDevTools.ProjectPluginSettingsConfigurable" displayName="OhosDevTools" />
+    </extensions>
+</idea-plugin>

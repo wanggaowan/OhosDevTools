@@ -1,0 +1,18 @@
+<idea-plugin>
+    <description><![CDATA[
+    <h2>提供鸿蒙开发所需工具</h2>
+    <ol>
+      <li>提取中文为多语言</li>
+      <li>根据模版string.json翻译其它语言json文件功能</li>
+    </ol>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <p>1.0</p>
+    <ul>
+      <li>提取中文为多语言</li>
+      <li>根据模版string.json翻译其它语言json文件功能</li>
+    </ul>
+    ]]>
+    </change-notes>
+</idea-plugin>

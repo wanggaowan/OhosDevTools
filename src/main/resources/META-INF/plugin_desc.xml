@@ -4,14 +4,16 @@
     <ol>
       <li>提取中文为多语言</li>
       <li>根据模版string.json翻译其它语言json文件功能</li>
+      <li>导入不同分辨率下的相同图片(支持粘贴、拖拽导入)，支持直接导入压缩包</li>
     </ol>
     ]]></description>
 
     <change-notes><![CDATA[
     <p>1.0</p>
     <ul>
-      <li>提取中文为多语言</li>
-      <li>根据模版string.json翻译其它语言json文件功能</li>
+      <li>新增一键从外部导入不同分辨率下相同图片功能</li>
+      <li>新增提取中文为多语言功能</li>
+      <li>新增根据模版string.json翻译其它语言json文件功能</li>
     </ul>
     ]]>
     </change-notes>

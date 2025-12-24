@@ -42,9 +42,9 @@ intellijPlatform {
             untilBuild = "10000.*"
         }
 
-        changeNotes = """
-            Initial version
-        """.trimIndent()
+        // changeNotes = """
+        //     Initial version
+        // """.trimIndent()
     }
 }
 

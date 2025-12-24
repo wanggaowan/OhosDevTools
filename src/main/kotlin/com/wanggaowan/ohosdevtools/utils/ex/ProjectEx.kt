@@ -10,6 +10,7 @@ import com.intellij.openapi.roots.ModuleRootManager
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiFileSystemItem
 
 /*
  * Project扩展
@@ -72,7 +73,7 @@ val Project.rootDir: VirtualFile?
  */
 fun Project.findChild(name: String) = rootDir?.findChild(name)
 
-val Project.flutterModules: List<Module>?
+val Project.ohosModules: List<Module>?
     get() {
         val modules = getModules()
         if (modules.isNullOrEmpty()) {
@@ -87,11 +88,13 @@ val Project.flutterModules: List<Module>?
         return list
     }
 
-/// 资源根目录
+/**
+ * 项目资源根目录
+ */
 val Project.resRootDir: VirtualFile?
     get() {
         return VirtualFileManager.getInstance()
-            .findFileByUrl("file://${basePath}/app/src/main/res")
+            .findFileByUrl("file://${basePath}/AppScope/resources")
     }
 
 // </editor-fold>
@@ -99,7 +102,7 @@ val Project.resRootDir: VirtualFile?
 
 // <editor-fold desc="Module">
 /**
- * 是否是Flutter项目
+ * 是否是鸿蒙项目
  */
 val Module?.isOhosProject: Boolean
     get() {
@@ -132,10 +135,21 @@ val Module?.basePath: String?
  */
 fun Module.findChild(name: String) = rootDir?.findChild(name)
 
-/// 资源根目录路径
+/**
+ * 资源根目录路径
+ */
 val Module.resRootPath: String
     get() {
         return "${basePath}/src/main/resources"
+    }
+
+/**
+ * 资源根目录
+ */
+val Module.resRootDir: VirtualFile?
+    get() {
+        return VirtualFileManager.getInstance()
+            .findFileByUrl("file://${resRootPath}")
     }
 
 // </editor-fold>
@@ -197,7 +211,15 @@ fun PsiElement?.findModule(): Module? {
         return null
     }
 
-    val parent = containingFile ?: return null
-    return parent.virtualFile?.module
+    val file = containingFile
+    if (file != null) {
+        return file.virtualFile?.module
+    }
+
+    if (this is PsiFileSystemItem) {
+        return virtualFile?.module
+    }
+
+    return null
 }
 

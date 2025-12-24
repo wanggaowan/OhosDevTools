@@ -9,6 +9,14 @@
     <depends>com.intellij.modules.json</depends>
 
     <actions>
+        <group id="OhosDevTools" text="Ohos Dev Tools" popup="true"
+            class="com.wanggaowan.ohosdevtools.actions.ToolsActionGroup">
+            <add-to-group group-id="ToolsMenu" anchor="last" />
+            <action id="AndroidDevTools.ImportSameImageResAction"
+                class="com.wanggaowan.ohosdevtools.actions.image.ImportSameImageResAction"
+                text="导入不同分辨率下的相同文件" />
+        </group>
+
         <group id="OhosDevTools.EditorPopupMenu">
             <action id="OhosDevTools.ExtractStr2L10n"
                 class="com.wanggaowan.ohosdevtools.actions.translate.ExtractStr2L10nAction"
@@ -31,6 +39,11 @@
         </action>
     </actions>
 
+    <projectListeners>
+        <listener class="com.wanggaowan.ohosdevtools.listener.MyProjectManagerListener"
+            topic="com.intellij.openapi.project.ProjectManagerListener" />
+    </projectListeners>
+
     <extensions defaultExtensionNs="com.intellij">
         <notificationGroup displayType="BALLOON" id="com.wanggaowan.ohosdevtools.notification"
             isLogByDefault="false" />
@@ -38,5 +51,12 @@
         <projectConfigurable parentId="tools"
             instance="com.wanggaowan.ohosdevtools.settings.ProjectPluginSettingsConfigurable"
             id="OhosDevTools.ProjectPluginSettingsConfigurable" displayName="OhosDevTools" />
+
+        <filePasteProvider
+            implementation="com.wanggaowan.ohosdevtools.listener.ImportSameImageListener"
+            order="first" />
+        <refactoring.moveHandler
+            implementation="com.wanggaowan.ohosdevtools.listener.ImportSameImageListener"
+            order="first" />
     </extensions>
 </idea-plugin>

@@ -22,7 +22,7 @@ dependencies {
     intellijPlatform {
         local("/Users/wgw/Documents/develop/project/ide plugin/test ide/DevEco-Studio.app")
         localPlugin("/Users/wgw/Documents/develop/project/ide plugin/test ide/DevEco-Studio.app/Contents/plugins/json")
-        localPlugin("/Users/wgw/Documents/develop/project/ide plugin/test ide/DevEco-Studio.app/Contents/plugins/harmony")
+        // localPlugin("/Users/wgw/Documents/develop/project/ide plugin/test ide/DevEco-Studio.app/Contents/plugins/harmony")
         // plugins("com.intellij.modules.json:243.24978.46.36.601249")
     }
 }

@@ -16,6 +16,9 @@
             <action id="OhosDevTools.ExtractStr2L10nWithTranslateAction"
                 class="com.wanggaowan.ohosdevtools.actions.translate.ExtractStr2L10nWithTranslateAction"
                 text="提取为多语言并翻译" />
+            <action id="OhosDevTools.DeleteStringsSameKeyElementAction"
+                class="com.wanggaowan.ohosdevtools.actions.DeleteStringsSameKeyElementAction"
+                text="在所有string文件中删除此项" />
             <separator />
             <add-to-group group-id="EditorPopupMenu" anchor="first" />
         </group>

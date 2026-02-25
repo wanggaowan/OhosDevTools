@@ -9,6 +9,11 @@
     ]]></description>
 
     <change-notes><![CDATA[
+    <p>1.1</p>
+    <ul>
+      <li>翻译ak，sk使用插件设置配置，不再内置，存在泄露风险</li>
+    </ul>
+
     <p>1.0</p>
     <ul>
       <li>新增一键从外部导入不同分辨率下相同图片功能</li>

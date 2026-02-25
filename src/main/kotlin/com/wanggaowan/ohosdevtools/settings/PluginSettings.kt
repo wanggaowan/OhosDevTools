@@ -10,6 +10,9 @@ import com.wanggaowan.ohosdevtools.utils.PropertiesSerializeUtils
  */
 object PluginSettings {
     private const val EXTRACT_STR_2_L10N_SHOW_RENAME_DIALOG = "extractStr2L10nShowRenameDialog"
+    // 阿里api配置
+    private const val ALI_AK = "aliAk"
+    private const val ALI_SK = "aliSk"
 
     private fun formatPath(path: String): String {
         var mapPath = path
@@ -28,6 +31,22 @@ object PluginSettings {
 
     fun setExtractStr2L10nShowRenameDialog(project: Project? = null, value: Boolean) {
         setValue(project, EXTRACT_STR_2_L10N_SHOW_RENAME_DIALOG, if (value) "1" else "0")
+    }
+
+    fun getAliAk(): String {
+        return getValue(null, ALI_AK, "")
+    }
+
+    fun setAliAk(value: String) {
+        setValue(null, ALI_AK, value)
+    }
+
+    fun getAliSk(): String {
+        return getValue(null, ALI_SK,"")
+    }
+
+    fun setAliSk(value: String) {
+        setValue(null, ALI_SK, value)
     }
 
     private fun getValue(project: Project?, key: String, defValue: String): String {

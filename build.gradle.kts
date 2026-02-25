@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.wanggaowan"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 repositories {
     maven { setUrl("https://maven.aliyun.com/repository/central") }
@@ -35,7 +35,7 @@ intellijPlatform {
     pluginConfiguration {
         group = "com.wanggaowan"
         name = "OhosDevTools"
-        version = "1.0"
+        version = "1.1"
 
         ideaVersion {
             sinceBuild = "243"
